@@ -49,9 +49,9 @@ No further HTTP request parameters needed.  This request will return a JSON obje
 
 #### Swtich Detail
 
-<code>http://localhost:8000/sim/<switch_id></code>
+<code>http://localhost:8000/sim/\<switch_id\></code>
 
-<code> <switch_id> -- switch ID one can read from the switch listing result</code>
+\<switch_id\> -- switch ID one can read from the switch listing result
 
 No additional HTTP request parameters needed.  This request will return a JSON object describing the details of a switch, including all the ports for this switch.
 
