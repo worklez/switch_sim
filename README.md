@@ -826,9 +826,62 @@ This operation deletes a bunch of ports to the specified switch -- switch is ide
 }
 </code>
 
+#### Get Port Status
+
+Operation to get the port status on a named port (on a specified switch)
+
+<code>
+http://localhost:8000/sim/1/portStatus?port=1.1.2
+</code>
+
+##### HTTP Request Parameter
+* port -- port name
+
+##### HTTP Response
+
+This is the only operation which does not return a JSON object, and it returns a simple string.
+
+There are 2 options to the response --
+* signalDetect -- the port is (supposedly) up and running, but no port mapping from the switch's point of view
+* link -- the port is (again, supposedly) up and running, AND the port is currently mapped
+
 #### Map 2 Ports
 
+<code>
+http://localhost:8000/sim/1/map?src=1.1.1&dest=1.1.4
+</code>
+
+Create a link between the 2 ports specified.
+
+##### HTTP Request Parameter
+* src -- source port name
+* dest -- destination port name
+
+##### HTTP Response
+<code>
+{
+    "result": "done"
+}
+</code>
+
 #### Unmap 2 Ports
+
+<code>
+http://localhost:8000/sim/1/unmap?src=1.1.3&dest=1.1.4
+</code>
+
+Clears the mapping between 2 specified ports.
+
+##### HTTP Request Parameter
+* src -- source port name
+* dest -- destination port name
+
+##### HTTP Response
+<code>
+{
+    "result": "done"
+}
+</code>
 
 #### List Port Mappings
 
