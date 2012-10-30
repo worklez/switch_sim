@@ -6,9 +6,15 @@ from django.utils import simplejson
 from sim.models import Switch, Port, Link
 
 def index(request):
-    switch_list = Switch.objects.order_by('name')[:50]
-    context = {'switch_list': switch_list}
-    return render (request, 'sim/index.html', context)
+    switch_list = Switch.objects.all()
+    
+    result = {'count': switch_list.count()}
+    retlist = []
+    for s in switch_list:
+        retlist.append({'id': s.id, 'name': s.name, 'description': s.description, 'port_count': s.port_count(), 'status': "online"},)
+    result['switches'] = retlist
+    
+    return HttpResponse(simplejson.dumps(result, sort_keys=True, indent=4) + "\n", mimetype='application/json');
 
 def detail(request, switch_id):
 
