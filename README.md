@@ -786,3 +786,72 @@ No additional HTTP request parameters needed.  This request will return a JSON o
 }
 </code>
 
+#### Management interface -- Add Ports
+
+<code>
+http://localhost:8000/sim/1/addPorts?prefix=1.1&start=21&end=144
+</code>
+
+This operation adds a bunch of ports to the specified switch -- switch is identified by the \<switch_id\>
+
+##### HTTP Request Parameters
+* prefix -- prefix to the port name
+* start -- starting native port number
+* end -- end native port number
+
+##### HTTP Response
+<code>
+{
+    "result": "done"
+}
+</code>
+
+#### Management interface -- Delete Ports
+
+<code>
+http://localhost:8000/sim/1/deletePorts?prefix=1.1&start=100&end=144
+</code>
+
+This operation deletes a bunch of ports to the specified switch -- switch is identified by the \<switch_id\>
+
+##### HTTP Request Parameters
+* prefix -- prefix to the port name
+* start -- starting native port number
+* end -- end native port number
+
+##### HTTP Response
+<code>
+{
+    "result": "done"
+}
+</code>
+
+#### Map 2 Ports
+
+#### Unmap 2 Ports
+
+#### List Port Mappings
+
+<code>
+http://localhost:8000/sim/1/listMappings
+</code>
+
+This operation lists all the port mappings for a said switch.
+
+##### HTTT Response
+<code>
+[
+    {
+        "from": "1.1.1", 
+        "to": "1.1.4"
+    }
+]
+</code>
+
+#### Clear Port Mappings
+
+<code>
+http://localhost:8000/sim/1/clearMapping
+</code>
+
+This operation clears all the port mappings of a specified switch.
