@@ -12,6 +12,8 @@ It also has a few basic managment operations, such as
 * for a particular switch, show me the details
 * for a particular switch, add/delete a bunch of ports
 
+---
+
 ### Installation
 1.  clone a copy of the whole project form github: https://github.com/ahmay98/switch_sim
 2.  modify the <INSTALL_DIR>/src/switch_sim/settings.py, and update the sqlite DB's absolute path -- the path should be your <INSTALL_DIR>/src/sqlite.db
@@ -20,6 +22,8 @@ It also has a few basic managment operations, such as
 5.  'python manage.py runserver'
 5a.  btw, default port is 8000
 6.  bring up a browser, and hit 'http://localhost:8000/sim'
+
+---
 
 ### Operations
 This is a complete REST WS interface...most of the operations will return some sort of JSON object as the response, (with one exception).
@@ -46,6 +50,8 @@ No further HTTP request parameters needed.  This request will return a JSON obje
     ]
 }
 </code>
+
+---
 
 #### Swtich Detail
 
@@ -786,6 +792,8 @@ No additional HTTP request parameters needed.  This request will return a JSON o
 }
 </code>
 
+---
+
 #### Management interface -- Add Ports
 
 <code>
@@ -805,6 +813,8 @@ This operation adds a bunch of ports to the specified switch -- switch is identi
     "result": "done"
 }
 </code>
+
+---
 
 #### Management interface -- Delete Ports
 
@@ -826,6 +836,8 @@ This operation deletes a bunch of ports to the specified switch -- switch is ide
 }
 </code>
 
+---
+
 #### Get Port Status
 
 Operation to get the port status on a named port (on a specified switch)
@@ -844,6 +856,8 @@ This is the only operation which does not return a JSON object, and it returns a
 There are 2 options to the response --
 * signalDetect -- the port is (supposedly) up and running, but no port mapping from the switch's point of view
 * link -- the port is (again, supposedly) up and running, AND the port is currently mapped
+
+---
 
 #### Map 2 Ports
 
@@ -864,6 +878,8 @@ Create a link between the 2 ports specified.
 }
 </code>
 
+----
+
 #### Unmap 2 Ports
 
 <code>
@@ -883,6 +899,8 @@ Clears the mapping between 2 specified ports.
 }
 </code>
 
+---
+
 #### List Port Mappings
 
 <code>
@@ -901,6 +919,8 @@ This operation lists all the port mappings for a said switch.
 ]
 </code>
 
+---
+
 #### Clear Port Mappings
 
 <code>
@@ -908,3 +928,11 @@ http://localhost:8000/sim/1/clearMapping
 </code>
 
 This operation clears all the port mappings of a specified switch.
+
+##### HTTT Response
+<code>
+{
+    "result": "done"
+}
+</code>
+
